@@ -9,13 +9,44 @@ function ordenarNumeros() {
         console.log("Los números son iguales: " + num1 + ", " + num2 + ", " + num3);
     }
     
-    const numbers = [num1, num2, num3];
-    const numerosOrdenadosAscendente = [...numbers].sort((a, b) => a - b);
-    const numerosOrdenadosDescendente = [...numbers].sort((a, b) => b - a);
-    
-    console.log("Números ingresados: " + numbers.join(", "));
-    console.log("Números de mayor a menor: " + numerosOrdenadosDescendente.join(", "));
-    console.log("Números de menor a mayor: " + numerosOrdenadosAscendente.join(", "));
+    let mayor, medio, menor;
+
+    if (num1 >= num2 && num1 >= num3) {
+        mayor = num1;
+        if (num2 >= num3) {
+            medio = num2;
+            menor = num3;
+        } else {
+            medio = num3;
+            menor = num2;
+        }
+    } else if (num2 >= num1 && num2 >= num3) {
+        mayor = num2;
+        if (num1 >= num3) {
+            medio = num1;
+            menor = num3;
+        } else {
+            medio = num3;
+            menor = num1;
+        }
+    } else {
+        mayor = num3;
+        if (num1 >= num2) {
+            medio = num1;
+            menor = num2;
+        } else {
+            medio = num2;
+            menor = num1;
+        }
     }
+
+    console.log("Números ingresados: " + num1 + ", " + num2 + ", " + num3);
+    console.log("Número mayor: " + mayor);
+    console.log("Número del centro: " + medio);
+    console.log("Número menor: " + menor);
+    console.log("Números de mayor a menor: " + mayor + ", " + medio + ", " + menor);
+    console.log("Números de menor a mayor: " + menor + ", " + medio + ", " + mayor);
+}
+    
 
 ordenarNumeros()

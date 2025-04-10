@@ -1,0 +1,35 @@
+function ordenarNumeros() {
+    const num1 = Number(prompt("Ingrese el primer número:"));
+    const num2 = Number(prompt("Ingrese el segundo número:"));
+    const num3 = Number(prompt("Ingrese el tercer número:"));
+
+    if (num1 === num2 && num2 === num3) {
+        console.log("Los números son iguales: " + num1 + ", " + num2 + ", " + num3);
+    }
+    
+    const numbers = [num1, num2, num3];
+    const numerosOrdenadosAscendente = [...numbers].sort((a, b) => a - b);
+    const numerosOrdenadosDescendente = [...numbers].sort((a, b) => b - a);
+    
+    console.log("Números ingresados: " + numbers.join(", "));
+    console.log("Números de mayor a menor: " + numerosOrdenadosDescendente.join(", "));
+    console.log("Números de menor a mayor: " + numerosOrdenadosAscendente.join(", "));
+    }
+
+ordenarNumeros()
+
+
+Explicación:
+
+[...numbers] -> Xrea una copia superficial del array numbers.
+
+sort() -> Ordena los elementos de un array en su lugar.
+
+(a, b) => a - b: Esta es una función de flecha, define la lógica de comparación.
+Si a - b es menor que 0, a se ordena antes que b.
+Si a - b es mayor que 0, b se ordena antes que a.
+Si a - b es igual a 0, el orden relativo de a y b no cambia.
+
+
+join() -> Crea una nueva cadena concatenando todos los elementos del array.
+Se separa con coma = join(", ")
